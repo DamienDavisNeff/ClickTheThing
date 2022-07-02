@@ -7,6 +7,7 @@ TagManager:
   - Cursor
   - Map
   - Pause
+  - Options
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: World
     uniqueID: 1238582075
+    locked: 0
+  - name: AuI
+    uniqueID: 158166249
     locked: 0
   - name: Cursor
     uniqueID: 1337453635

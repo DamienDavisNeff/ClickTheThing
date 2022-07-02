@@ -8,7 +8,8 @@ public class CameraMovement : MonoBehaviour
     private Transform t_Cursor;
     private Vector2 Mouse;
 
-    private Vector2 MapSize;
+    [HideInInspector]
+    public Vector2 MapSize;
 
     [SerializeField]
     private Transform anchorPoint;
