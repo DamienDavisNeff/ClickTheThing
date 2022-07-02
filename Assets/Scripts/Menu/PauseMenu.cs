@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
+    // required game objects
     public GameObject Pause;
     public GameObject Options;
 
@@ -12,8 +13,8 @@ public class PauseMenu : MonoBehaviour
 
     void Start() {
 
-        if(Options == null) Options = this.GetComponent<OptionsMenu>().Options;
-        if(Pause == null) Options = this.GetComponent<OptionsMenu>().Pause;
+        if(Options == null) Options = this.GetComponent<OptionsMenu>().Options; // if there isn't a options menu set, tries to pull it from options scripts, in case it is set there
+        if(Pause == null) Options = this.GetComponent<OptionsMenu>().Pause; // if the pause menu isn't set, tries to pull it from options, in case it is set there
 
         Pause.SetActive(false);
         

@@ -14,13 +14,16 @@ public class CameraMovement : MonoBehaviour
     private Transform anchorPoint;
 
     [Header("Options")]
+    [Tooltip("Area Around The Center Of The Screen, Where Movement Is Not Registered")]
     public float DeadZone = 2f;
+    [Tooltip("Camera Speed")]
     public float Sensitivity = 1f;
 
 
     // Runs Every Time Game Comes Into Focus
     void OnApplicationFocus() {
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     void Start() {
