@@ -14,10 +14,8 @@ public class CameraMovement : MonoBehaviour
     private Transform anchorPoint;
 
     [Header("Options")]
-    [SerializeField]
-    private float DeadZone = 2f;
-    [SerializeField]
-    private float Sensitivity = 1f;
+    public float DeadZone = 2f;
+    public float Sensitivity = 1f;
 
 
     // Runs Every Time Game Comes Into Focus
@@ -29,6 +27,9 @@ public class CameraMovement : MonoBehaviour
         t_Cursor = GameObject.FindGameObjectWithTag("Cursor").transform;
         MapSize = GameObject.FindGameObjectWithTag("Map").GetComponent<Renderer>().bounds.size / 2f;
         Cursor.visible = false;
+
+        if(PlayerPrefs.HasKey("Sensitivity")) Sensitivity = PlayerPrefs.GetFloat("Sensitivity");
+        if(PlayerPrefs.HasKey("DeadZone")) DeadZone = PlayerPrefs.GetFloat("DeadZone");
     }
     
     void FixedUpdate() {

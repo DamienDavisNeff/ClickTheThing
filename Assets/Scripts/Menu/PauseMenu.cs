@@ -5,13 +5,18 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
 
-    private GameObject Pause;
+    public GameObject Pause;
+    public GameObject Options;
 
-    public bool Paused = false;
+    private bool Paused = false;
 
-    void Awake() {
-        Pause = GameObject.FindGameObjectWithTag("Pause");
+    void Start() {
+
+        if(Options == null) Options = this.GetComponent<OptionsMenu>().Options;
+        if(Pause == null) Options = this.GetComponent<OptionsMenu>().Pause;
+
         Pause.SetActive(false);
+        
     }
 
     void Update() {
@@ -20,22 +25,18 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void PauseGame() {
-        Debug.Log("Paused");
 
-        Cursor.visible = true;
         Pause.SetActive(true);
+        Cursor.visible = true;
         Time.timeScale = 0;
 
-        Paused = true;
     }
 
     public void UnPauseGame() {
-        Debug.Log("UnPaused");
 
-        Cursor.visible = false;
-        Pause.SetActive(false);
         Time.timeScale = 1;
+        Pause.SetActive(false);
+        Cursor.visible = false;
 
-        Paused = false;
     }
 }
