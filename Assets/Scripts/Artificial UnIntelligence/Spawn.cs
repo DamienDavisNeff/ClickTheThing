@@ -5,8 +5,7 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
 
-    [SerializeField]
-    private int MaxSpawns = 3;
+    public int MaxSpawns = 3;
     [HideInInspector]
     public int CurrentSpawns;
 

@@ -8,6 +8,9 @@ public class Kill : MonoBehaviour
     [SerializeField]
     private GameObject Spawner;
 
+    [SerializeField]
+    private GameObject Score;
+
     void Update() {
 
         if(Input.GetButtonDown("Fire1")) {
@@ -17,11 +20,15 @@ public class Kill : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(WorldPoint, -Vector2.up);
 
             if(hit.collider != null) {
+
                 Debug.Log(hit.collider.name);
 
-                if(hit.collider.tag == "Enemy") Destroy(hit.transform.gameObject);
+                if(hit.collider.tag == "Enemy") {
+                    Destroy(hit.transform.gameObject);
+                    Spawner.GetComponent<Spawn>().CurrentSpawns = Spawner.GetComponent<Spawn>().CurrentSpawns - 1;
+                    Score.GetComponent<Score>().IncreaseScore();
+                }
 
-                Spawner.GetComponent<Spawn>().CurrentSpawns = Spawner.GetComponent<Spawn>().CurrentSpawns - 1;
 
             }
 

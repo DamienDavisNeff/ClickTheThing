@@ -9,6 +9,9 @@ TagManager:
   - Pause
   - Options
   - Enemy
+  - High
+  - Score
+  - Time
   layers:
   - Default
   - TransparentFX
