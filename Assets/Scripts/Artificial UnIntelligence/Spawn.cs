@@ -6,8 +6,9 @@ public class Spawn : MonoBehaviour
 {
 
     [SerializeField]
-    private int MaxSpawns = 10;
-    private int CurrentSpawns;
+    private int MaxSpawns = 3;
+    [HideInInspector]
+    public int CurrentSpawns;
 
     [SerializeField]
     private GameObject AuI;
